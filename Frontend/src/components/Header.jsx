@@ -11,25 +11,25 @@ const Header = () => {
         </div>
         <nav className="flex space-x-6">
           <a
-            href="#home"
+            href="/"
             className="text-gray-200 hover:text-[#C33B3B] hover:underline"
           >
             Home
           </a>
           <a
-            href="#about"
+            href="/trending"
             className="text-gray-200 hover:text-[#C33B3B] hover:underline"
           >
             Trending
           </a>
           <a
-            href="#services"
+            href="/upcoming"
             className="text-gray-200 hover:text-[#C33B3B] hover:underline"
           >
             Upcoming
           </a>
           <a
-            href="#contact"
+            href="/watchlist"
             className="text-gray-200 hover:text-[#C33B3B] hover:underline"
           >
             Watchlist
