@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
-function useFetchMovies(url) {
-  const [movieData, setMovieData] = useState([]);
+function useFetchMovies(url, setData) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -15,12 +14,13 @@ function useFetchMovies(url) {
         const response = await axios.get(url, {
           headers: {
             accept: "application/json",
-            Authorization: {apiKey}
+            Authorization: { apiKey },
           },
         });
-        setMovieData(response.data);
+        setData(response.data.results);
       } catch (err) {
         setError(err);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
@@ -29,7 +29,7 @@ function useFetchMovies(url) {
     fetchMovies();
   }, [url]);
 
-  return { movieData, loading, error };
+  return { loading, error };
 }
 
 export default useFetchMovies;
